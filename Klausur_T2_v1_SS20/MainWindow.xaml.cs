@@ -21,8 +21,8 @@ namespace Klausur_T2_v1_SS20
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Körper> AlleKörper = new List<Körper>();
-        List<Körper> zuLöschendeKörper = new List<Körper>();
+        List<Stein> AlleKörper = new List<Stein>();
+        List<Stein> zuLöschendeKörper = new List<Stein>();
 
         DispatcherTimer timer = new DispatcherTimer();
         public MainWindow()
@@ -35,7 +35,7 @@ namespace Klausur_T2_v1_SS20
         private void Animiere(object sender, EventArgs e)
         {
             Zeichenfläche.Children.Clear();
-            foreach (Körper k in AlleKörper)
+            foreach (Stein k in AlleKörper)
             {
                 if(k.Bewege(Zeichenfläche, timer.Interval))
                 {
@@ -59,13 +59,13 @@ namespace Klausur_T2_v1_SS20
                 switch (e.Key)
                 {
                     case Key.K:
-                        AlleKörper.Add(new Kiesel(Zeichenfläche));
+                        AlleKörper.Add(new Stein(Zeichenfläche, 6));
                         break;
                     case Key.S:
-                        AlleKörper.Add(new Stein(Zeichenfläche));
+                        AlleKörper.Add(new Stein(Zeichenfläche, 12));
                         break;
                     case Key.F:
-                        AlleKörper.Add(new Fels(Zeichenfläche));
+                        AlleKörper.Add(new Stein(Zeichenfläche, 24));
                         break;
                     case Key.Space:
                         AlleKörper.ForEach(x => x.ÄndereFarbe());

@@ -9,16 +9,16 @@ using System.Windows.Shapes;
 
 namespace Klausur_T2_v1_SS20
 {
-    abstract class Körper
+    class Stein
     {
         public double x, y;
         protected double ay, vy=0;
         Polygon umriss;
         static protected Random rnd = new Random();
 
-        public Körper(double x, double Radius)
+        public Stein(Canvas ZF, double Radius)
         {
-            this.x = x;
+            x = rnd.NextDouble()*ZF.ActualWidth;
             y = 0;
             ay = 1000;
 
@@ -56,33 +56,5 @@ namespace Klausur_T2_v1_SS20
         }
     }
 
-    class Kiesel : Körper
-    {
-       
-        public Kiesel(Canvas ZF)
-            : base(rnd.NextDouble()*ZF.ActualWidth, 6)
-        {
-            
-        }
-
-    }
-
-    class Stein : Körper
-    {
-        public Stein(Canvas ZF)
-            : base(rnd.NextDouble() * ZF.ActualWidth, 12)
-        {
-            
-        }
-    }
-
-    class Fels : Körper
-    {
-        
-        public Fels(Canvas ZF)
-            : base(rnd.NextDouble() * ZF.ActualWidth, 24)
-        {
-            
-        }
-    }
+    
 }
